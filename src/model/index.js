@@ -1,19 +1,26 @@
 const users = [
     {
         id: 0,
-        firstName: "Kasra",
-        lastName: "Tabrizi",
-        age: 30,
+        name: 'Kasra',
+    },
+    {
+        id: 1,
+        name: 'Jan',
     },
 ];
 
-const message = [
+const messages = [
     {
-        text: "efzefzefze"
+        id: 0,
+        text: 'Hello world',
+    },
+    {
+        id: 1,
+        text: 'if you happy and you know it clap your hands',
     },
 ];
 
 export default {
     users,
-    messages
-}
+    messages,
+};

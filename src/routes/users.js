@@ -2,27 +2,25 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
     res.json(users);
 });
 
-router.get('/users/:userId', (req, res) => {
+router.get('/:userId', (req, res) => {
     res.json(users[req.params.userId]);
 });
 
-router.post('/users', (req, res) => {
+router.post('/', (req, res) => {
     users.push({ id: users.length, ...req.body });
     res.json(users);
 });
 
-router.put('/users/:userId', (req, res) => {
-    users[req.params.userId] = req.body;
-    res.json(users);
+router.put('/', (req, res) => {
+    res.send('Received PUT request on endpoint /users');
 });
 
-router.delete('/users/:userId', (req, res) => {
-    users.splice(req.params.userId, 1);
-    res.json(users);
+router.delete('/', (req, res) => {
+    res.send(req.context.models.users);
 });
 
 export default router;
