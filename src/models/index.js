@@ -1,26 +1,16 @@
-const users = [
-    {
-        id: 0,
-        name: 'Kasra',
-    },
-    {
-        id: 1,
-        name: 'Jan',
-    },
-];
+import { Mongoose } from "mongoose";
 
-const messages = [
-    {
-        id: 0,
-        text: 'Hello world',
-    },
-    {
-        id: 1,
-        text: 'if you happy and you know it clap your hands',
-    },
-];
+import User from './user';
+import Message from './message';
 
-export default {
-    users,
-    messages,
+const connectDb = () => {
+    return Mongoose.connect('mongodb://localhost:27017/mern');
 };
+
+const models = {
+    User,
+    Message
+};
+
+export { connectDb };
+export default models;

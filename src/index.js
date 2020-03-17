@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import routes from './routes';
-import models from './models';
+import models, { connectDb } from './models';
 
 const app = express();
 const port = 3000;
