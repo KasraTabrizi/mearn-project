@@ -26,4 +26,6 @@ app.use('/users', routes.users);
 app.use('/messages', routes.messages);
 
 // Start Server
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+connectDb().then(async () => {
+    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+});
