@@ -1,13 +1,17 @@
 import { Router } from 'express';
 
-const router = Router();
+const router = Router(); //a router function that returned a router object
 
-router.get('/', (req, res) => {
-    res.json(users);
+router.get('/', async (req, res) => {
+    // res.json(users);
+    const users = await req.context.models.User.find();
+    return res.send(users);
 });
 
-router.get('/:userId', (req, res) => {
-    res.json(users[req.params.userId]);
+router.get('/:userId', async (req, res) => {
+    //res.json(users[req.params.userId]);
+    const user = await req.context.models.User.findById(req.params.userId);
+    return res.send(user);
 });
 
 router.post('/', (req, res) => {

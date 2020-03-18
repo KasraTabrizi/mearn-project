@@ -1,5 +1,4 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cors from 'cors';
 
 import routes from './routes';
@@ -17,8 +16,8 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(cors());
-app.use(express.json());
+app.use(cors()); //request en response have the correct headers
+app.use(express.json()); //parse request from string to an object
 app.use(express.urlencoded({ extended: true }));
 
 // Routes

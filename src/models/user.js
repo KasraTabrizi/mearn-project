@@ -1,12 +1,13 @@
-import { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 
 //database schema = boilerplate for a certain type of information
-const userSchema = new Mongoose.Schema({
+const userSchema = new mongoose.Schema({
     userName: {
         type: String,
         unique: true
     }
 });
+
 
 userSchema.statics.findByLogin = async function (login) {
     let user = await this.findOne({
@@ -20,7 +21,7 @@ userSchema.statics.findByLogin = async function (login) {
     return user;
 }
 
-const User = Mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 export default User;
 
